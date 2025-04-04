@@ -22,24 +22,27 @@ export default function SwitchWithColorPickerListItem({
   if (isMobile)
     return (
       <>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-        >
-          <Stack direction={"row"} alignItems={"center"} gap={2}>
-            <Typography>{title}</Typography>
-            <TextField
-              label={""}
-              type="color"
-              defaultValue={color}
-              onChange={(e) => setColor(e.target.value)}
-              style={{ width: "50px", height: "50px" }}
-            />
-          </Stack>
-          <Switch
-            checked={value}
-            onChange={(e) => setValue(e.target.checked)}
-            size="small"
+        <Stack direction={"row"} alignItems={'center'} gap={2}>
+          <Typography>{title}</Typography>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              borderRadius: "50%",
+              backgroundColor: value,
+              border: "2px solid #ccc",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+
+              const input = document.createElement('input');
+              input.type = 'color';
+              input.value = value;
+              input.click();
+              input.addEventListener('input', (e) => {
+                setValue((e.target as HTMLInputElement).value);
+              });
+            }}
           />
         </Stack>
       </>

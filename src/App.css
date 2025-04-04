@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+body{
+  font-family: "Gantari", sans-serif !important;
+}
 
 .logo {
   height: 6em;
@@ -47,4 +50,7 @@
 
 .bar-background {
   background-color: #c0c0c0;
+}
+.css-rizt0-MuiTypography-root{
+  font-family: "Gantari", sans-serif !important;
 }

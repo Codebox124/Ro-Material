@@ -103,15 +103,16 @@ export default function MapSettings({ setShowAlert }: Props) {
   };
 
   return isMobile ? (
-    <Sheet isOpen onClose={() => setShowAlert(false)} snapPoints={[375]}>
+    <Sheet isOpen onClose={() => setShowAlert(false)} snapPoints={[400]}>
       <Sheet.Container
         style={{
-          backgroundColor: mode === "dark" ? "#121212" : "#ffffff",
+          height: 579,
+          backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
         }}
       >
         <Sheet.Header />
         <Sheet.Content>
-          <Box p={2} sx={{ backgroundColor: mode === "dark" ? "#121212" : "#ffffff", color: mode === "dark" ? "white" : "black" }}>
+          <Box p={2} sx={{ backgroundColor: mode === "dark" ? "#141718" : "#ffffff", color: mode === "dark" ? "white" : "black" }}>
             {renderContent()}
           </Box>
         </Sheet.Content>

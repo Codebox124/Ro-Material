@@ -33,15 +33,30 @@ export default function FontListItem({
               type="number"
               defaultValue={fontSize}
               fullWidth
-              style={{width: "100px"}}
+              variant="standard"
+              style={{ width: "100px" }}
               onChange={(e) => setFontSize(Number(e.target.value))}
             />
             <TextField
-              label=""
               select
               fullWidth
               defaultValue={font}
               onChange={(e) => setFont(e.target.value)}
+              variant="standard" // Removes the default outlined border
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: "white", // White text
+                },
+                "& .MuiInput-underline:before": {
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.5)", // Bottom border before focus
+                },
+                "& .MuiInput-underline:hover:before": {
+                  borderBottom: "1px solid white", // Bottom border on hover
+                },
+                "& .MuiInput-underline:after": {
+                  borderBottom: "2px solid white", // Bottom border on focus
+                },
+              }}
             >
               <MenuItem value="Arial Unicode MS">Arial Unicode MS</MenuItem>
               <MenuItem value="Alegreya">Alegreya</MenuItem>
