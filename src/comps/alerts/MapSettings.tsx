@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Dialog from "@mui/material/Dialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HyperlinkListItem from "../list/HyperlinkListItem.tsx";
 import SimpleListItem from "../list/SimpleListItem.tsx";
 import CitiesDetails from "./CitiesDetails.tsx";
@@ -23,14 +23,44 @@ export default function MapSettings({ setShowAlert }: Props) {
   const [showBorderDetails, setShowBorderDetails] = useState(false);
   const [showCitiesDetails, setShowCitiesDetails] = useState(false);
   const [showRoadNetworkDetails, setShowRoadNetworkDetails] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(true);
   const [index, setIndex] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const mode = theme.palette.mode; 
+  const mode = theme.palette.mode;
 
   const handleClose = () => {
+    setIsSheetOpen(false);
     setShowAlert(false);
   };
+  
+  const applyDeepBlur = () => {
+   
+    document.body.style.backdropFilter = "blur(55px)";
+   
+    (document.body.style as any)["-webkit-backdrop-filter"] = "blur(55px)";
+  };
+  
+  const removeBlur = () => {
+    document.body.style.backdropFilter = "";
+   
+    (document.body.style as any)["-webkit-backdrop-filter"] = "";
+  };
+  
+  useEffect(() => {
+ 
+    setIsSheetOpen(true);
+    
+ 
+    if (isMobile) {
+      applyDeepBlur();
+    }
+    
+    return () => {
+  
+      removeBlur();
+    };
+  }, [isMobile]);
 
   const menuContent = (
     <Box height={"345px"}>
@@ -103,21 +133,34 @@ export default function MapSettings({ setShowAlert }: Props) {
   };
 
   return isMobile ? (
-    <Sheet isOpen onClose={() => setShowAlert(false)} snapPoints={[400]}>
-      <Sheet.Container
-        style={{
-          height: 579,
-          backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
-        }}
-      >
-        <Sheet.Header />
-        <Sheet.Content>
-          <Box p={2} sx={{ backgroundColor: mode === "dark" ? "#141718" : "#ffffff", color: mode === "dark" ? "white" : "black" }}>
-            {renderContent()}
-          </Box>
-        </Sheet.Content>
-      </Sheet.Container>
-    </Sheet>
+    <Sheet 
+    isOpen={isSheetOpen}
+    onClose={handleClose}
+    snapPoints={[500]}
+    onOpenStart={() => {
+     
+      applyDeepBlur();
+    }}
+    onCloseEnd={() => {
+     
+      removeBlur();
+    }}
+  >
+    <Sheet.Container
+      style={{
+        height: 579,
+        backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
+      }}
+    >
+      <Sheet.Header />
+      <Sheet.Content>
+        <Box p={2} sx={{ backgroundColor: mode === "dark" ? "#141718" : "#ffffff", color: mode === "dark" ? "white" : "black" }}>
+          {renderContent()}
+        </Box>
+      </Sheet.Content>
+    </Sheet.Container>
+    <Sheet.Backdrop onTap={handleClose} />
+  </Sheet>
   ) : (
     <Dialog open onClose={handleClose} maxWidth="sm" fullWidth>
       <Box

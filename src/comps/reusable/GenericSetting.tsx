@@ -4,6 +4,7 @@ import SectionHeaders from "../list/SectionHeaders.tsx";
 import SliderListItem from "../list/SliderListItem.tsx";
 import SwitchListItem from "../list/SwitchListItem.tsx";
 import { Stack } from "@mui/material";
+import { useState } from "react";
 
 interface GenericSettingProps {
   sectionTitle: string;
@@ -30,6 +31,7 @@ export default function GenericSetting({
   width,
   setWidth,
 }: GenericSettingProps) {
+  const [isEnabled, setIsEnabled] = useState(true);
   return (
 
     <Box
@@ -41,12 +43,12 @@ export default function GenericSetting({
       borderRadius={"12px"}
     >
       <Stack direction={"column"} gap={2}>
-        <SectionHeaders title={sectionTitle} />
-        <SwitchListItem
-          title={switchTitle ? switchTitle : "Show"}
-          value={value}
-          setValue={setValue}
+        <SectionHeaders
+         title={sectionTitle}
+          isChecked={isEnabled}
+          onToggle={() => setIsEnabled(!isEnabled)}
         />
+        
         <ColorPickerListItem
           title={colorPickerTitle ? colorPickerTitle : "Color"}
           value={color}
@@ -57,7 +59,8 @@ export default function GenericSetting({
           value={width}
           setValue={setWidth}
         />
-        </Stack>
+      </Stack>
     </Box>
   );
 }
+
