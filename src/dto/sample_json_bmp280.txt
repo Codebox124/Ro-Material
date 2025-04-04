@@ -1,0 +1,44 @@
+{
+  "timestamp": 1732639714125,
+  "sensors": {
+    "RAINGAUGE": {
+      "FLIP": {
+        "value": 0
+      }
+    },
+    "BMP280": {
+      "TEMP": {
+        "value": 49.802
+      },
+      "PRESSURE": {
+        "value": 992.7659635625616
+      },
+      "HUMIDITY": {
+        "value": 55.90436791783486
+      },
+      "DEWPOINT": {
+        "value": 34.68816817566618
+      },
+      "HEAT_INDEX": {
+        "value": 47.10970529213824
+      }
+    },
+    "WETBULB": {
+      "GLOBE_TEMP": {
+        "value": 48.87643370531343
+      }
+    },
+    "BOLTEK_LD_250": {
+      "STATUS": {
+        "value": {
+          "close_strike_rate": 0,
+          "total_strike_rate": 0,
+          "close_alarm_status": 0,
+          "severe_alarm_status": 0,
+          "current_heading": 0,
+          "checksum": 66
+        }
+      }
+    }
+  }
+}

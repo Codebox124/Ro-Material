@@ -1,0 +1,15 @@
+{
+  "timestamp": 1732634047008,
+  "sensors": {
+    "WINDVANE_DAVIS": {
+      "DEGREES": {
+        "value": 0
+      }
+    },
+    "ANEMOMETER_DAVIS": {
+      "WINDSPEED": {
+        "value": 0
+      }
+    }
+  }
+}
