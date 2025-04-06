@@ -11,7 +11,7 @@ interface Props {
 export default function SimpleListItem({ title, buttonClicked }: Props) {
   return (
     <>
-      <ListItem disablePadding>
+      <ListItem disablePadding style={{width:"fit-content", color:"grey"}}>
         <ListItemButton onClick={buttonClicked}>
           <ListItemText primary={title} />
           <KeyboardArrowRightIcon />

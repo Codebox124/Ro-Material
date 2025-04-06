@@ -31,7 +31,7 @@ export default function SwitchWithColorPickerListItem({
               borderRadius: "50%",
               backgroundColor: value,
               border: "2px solid #ccc",
-              cursor: "pointer",
+              cursor: "pointer"
             }}
             onClick={() => {
 
@@ -54,27 +54,50 @@ export default function SwitchWithColorPickerListItem({
           container
           alignItems={"center"}
           spacing={2}
-          style={{ marginLeft: "15px", marginRight: "15px", height: "56px" }}
+          style={{ marginLeft: "15px", marginRight: "15px", height: "56px",  width:"60%" }}
         >
           <Grid size={{ xs: 6 }}>
             <ListItemText primary={title} />
           </Grid>
+          
           <Grid size={{ xs: 2 }}>
-            <TextField
+            {/*<TextField
               label={""}
               type="color"
               defaultValue={color}
               onChange={(e) => setColor(e.target.value)}
-              style={{ width: "100%" }}
-            />
-          </Grid>
+              style={{ width: "100%", marginLeft:"-130px"}}
+            />*/}
+
+<div
+            style={{
+              width: "20px",
+              height: "20px",
+              borderRadius: "50%",
+              backgroundColor: value,
+              border: "2px solid #ccc",
+              cursor: "pointer"
+            }}
+            onClick={() => {
+
+              const input = document.createElement('input');
+              input.type = 'color';
+              input.value = value;
+              input.click();
+              input.addEventListener('input', (e) => {
+                setValue((e.target as HTMLInputElement).value);
+              });
+            }}
+          />
+            
+          </Grid>{/*
           <Grid size={{ xs: 2 }}></Grid>
           <Grid size={{ xs: 2 }}>
-            <Switch
+            {/*<Switch
               checked={value}
               onChange={(e) => setValue(e.target.checked)}
-            />
-          </Grid>
+            />*
+          </Grid>*/}
         </Grid>
       </>
     );

@@ -24,9 +24,9 @@ export default function BackAlertHeader({ title, action }: Props) {
       <Grid size={{ xs: 12 }}>
         <Grid container alignItems={"center"} spacing={2}>
           <Button color="primary" onClick={action}>
-            <NavigateBeforeIcon />
+            <NavigateBeforeIcon  />
           </Button>
-          <Typography variant={"h6"} display={"inline"}>
+          <Typography marginLeft={"-32px"} variant={"h6"} display={"inline"}>
             {title}
           </Typography>
         </Grid>

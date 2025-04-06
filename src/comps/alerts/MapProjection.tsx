@@ -22,7 +22,7 @@ export default function MapProjection({ setShowAlert, isMobile, moveBack }: Prop
     return (
       <>
         <Box>
-          <BackAlertHeader title={"Map Projection"} action={() => { handleClose(); if (moveBack) moveBack(); }} />
+          <BackAlertHeader  title={"Map Projection"} action={() => { handleClose(); if (moveBack) moveBack(); }} />
           <Box maxHeight={"300px"} overflow={"auto"}>
 
             <MapProjectionSetting

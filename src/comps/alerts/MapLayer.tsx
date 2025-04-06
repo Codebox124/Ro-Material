@@ -27,15 +27,15 @@ export default function MapLayer({ setShowAlert, isMobile, moveBack }: Props) {
     <BackAlertHeader title={"Layers"} action={() => { handleClose(); if (moveBack) moveBack(); }} />
     <Box sx={{ maxHeight: "300px", overflowY: "auto", overflowX: "hidden", paddingX: "30px", paddingTop: "10px"}}>
       <Stack direction={"column"} gap={2}>
-        <SliderListItem
-          title={"Map Opacity"}
-          value={opacity}
-          setValue={setOpacity}
-        />
         <ColorPickerListItem
           title={"Map Color"}
           value={backgroundColor}
           setValue={setBackgroundColor}
+        />
+        <SliderListItem
+          title={"Map Opacity"}
+          value={opacity}
+          setValue={setOpacity}
         />
         <SwitchListItem
           title={"Satellite Layer"}
@@ -74,15 +74,15 @@ export default function MapLayer({ setShowAlert, isMobile, moveBack }: Props) {
         >
           <Box padding={"20px"}>
             <BackAlertHeader title={"Layers"} action={handleClose} />
-            <SliderListItem
-              title={"Map Opacity"}
-              value={opacity}
-              setValue={setOpacity}
-            />
             <ColorPickerListItem
               title={"Map Color"}
               value={backgroundColor}
               setValue={setBackgroundColor}
+            />
+            <SliderListItem
+              title={"Map Opacity"}
+              value={opacity}
+              setValue={setOpacity}
             />
             <SwitchListItem
               title={"Satellite Layer"}

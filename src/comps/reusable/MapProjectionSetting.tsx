@@ -13,7 +13,7 @@ export default function MapProjectionSetting({
   return (
     <Box margin={"10px"} padding={"10px"} borderRadius={"12px"}>
       <FormControl fullWidth>
-        <span style={{fontSize: "12px", marginBottom: "5px"}} id="projection-label">Map Projection</span>
+        <span style={{fontSize: "17px", marginBottom: "10px", color:"grey"}} id="projection-label">Map Projection</span>
         <NativeSelect
         // labelId="projection-label"
           id="projection"
