@@ -50,7 +50,7 @@ export default function CitiesSettings({
     <Box borderRadius={"12px"}>
       <Stack gap={2} direction={"column"}>
         <CityListItem title={title} value={enabled} setValue={setEnabled} />
-        <SwitchListItem title={"Bold Font"} value={isBold} setValue={setIsBold} />
+       
 
         <SwitchWithColorPickerListItem
           title={"Color"}
@@ -72,6 +72,7 @@ export default function CitiesSettings({
           font={font}
           setFont={setFont}
         />
+         <SwitchListItem title={"Bold Font"} value={isBold} setValue={setIsBold} />
       </Stack>
     </Box>
   );
