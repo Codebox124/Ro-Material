@@ -14,7 +14,7 @@ interface Props {
   setValue: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 }
 
-export default function SwitchListItem({ title, value, setValue }: Props) {
+export default function CityListItem({ title, value, setValue }: Props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -22,18 +22,7 @@ export default function SwitchListItem({ title, value, setValue }: Props) {
     return (
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography>{title}</Typography>
-        <Switch
-          checked={value}
-          onChange={(e) => setValue(e.target.checked)}
-          sx={{
-            "& .MuiSwitch-switchBase.Mui-checked": {
-              color: "#fff",
-            },
-            "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-              backgroundColor: "#007bff",
-            },
-          }}
-        />
+        
       </Stack>
     );
   }
@@ -51,18 +40,7 @@ export default function SwitchListItem({ title, value, setValue }: Props) {
         <ListItemText primary={title} />
       </Grid>
       <Grid xs={2}>
-        <Switch
-          checked={value}
-          onChange={(e) => setValue(e.target.checked)}
-          sx={{
-            "& .MuiSwitch-switchBase.Mui-checked": {
-              color: "#fff",
-            },
-            "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-              backgroundColor: "#007bff",
-            },
-          }}
-        />
+        
       </Grid>
     </Grid>
   );

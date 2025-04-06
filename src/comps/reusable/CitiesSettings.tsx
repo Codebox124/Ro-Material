@@ -3,6 +3,7 @@ import FontListItem from "../list/FontListItem.tsx";
 import SwitchListItem from "../list/SwitchListItem.tsx";
 import SwitchWithColorPickerListItem from "../list/SwitchWithColorPickerListItem.tsx";
 import { Stack } from "@mui/material";
+import CityListItem from "../list/CityListItem.tsx";
 
 interface CitiesSettingsProps {
   enabled: boolean;
@@ -48,7 +49,7 @@ export default function CitiesSettings({
   return (
     <Box borderRadius={"12px"}>
       <Stack gap={2} direction={"column"}>
-        <SwitchListItem title={title} value={enabled} setValue={setEnabled} />
+        <CityListItem title={title} value={enabled} setValue={setEnabled} />
         <SwitchListItem title={"Bold Font"} value={isBold} setValue={setIsBold} />
 
         <SwitchWithColorPickerListItem

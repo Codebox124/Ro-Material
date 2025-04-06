@@ -37,27 +37,37 @@ export default function FontListItem({
               style={{ width: "100px" }}
               onChange={(e) => setFontSize(Number(e.target.value))}
             />
+            
             <TextField
               select
               fullWidth
               defaultValue={font}
               onChange={(e) => setFont(e.target.value)}
-              variant="standard" // Removes the default outlined border
+              variant="standard"
               sx={{
                 "& .MuiInputBase-root": {
-                  color: "white", // White text
+                  color: "white",
                 },
                 "& .MuiInput-underline:before": {
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.5)", // Bottom border before focus
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.5)",
                 },
                 "& .MuiInput-underline:hover:before": {
-                  borderBottom: "1px solid white", // Bottom border on hover
+                  borderBottom: "1px solid white",
                 },
                 "& .MuiInput-underline:after": {
-                  borderBottom: "2px solid white", // Bottom border on focus
+                  borderBottom: "2px solid white",
+                },
+              }}
+              MenuProps={{
+                disablePortal: false,
+                PaperProps: {
+                  style: {
+                    zIndex: 2000,
+                  },
                 },
               }}
             >
+
               <MenuItem value="Arial Unicode MS">Arial Unicode MS</MenuItem>
               <MenuItem value="Alegreya">Alegreya</MenuItem>
               <MenuItem value="Alegreya SC">Alegreya SC</MenuItem>
@@ -117,6 +127,21 @@ export default function FontListItem({
               fullWidth
               defaultValue={font}
               onChange={(e) => setFont(e.target.value)}
+              MenuProps={{
+                anchorOrigin: {
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                },
+                transformOrigin: {
+                  vertical: 'top',
+                  horizontal: 'left',
+                },
+                PaperProps: {
+                  style: {
+                    zIndex: 1400,
+                  },
+                },
+              }}
             >
               <MenuItem value="Arial Unicode MS">Arial Unicode MS</MenuItem>
               <MenuItem value="Alegreya">Alegreya</MenuItem>
