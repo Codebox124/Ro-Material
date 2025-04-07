@@ -38,7 +38,7 @@ export default function MapSettings({ setShowAlert }: Props) {
    
     document.body.style.backdropFilter = "blur(55px)";
    
-    (document.body.style as any)["-webkit-backdrop-filter"] = "blur(55px)";
+    // (document.body.style as any)["-webkit-backdrop-filter"] = "blur(55px)";
   };
   
   const removeBlur = () => {
@@ -132,46 +132,35 @@ export default function MapSettings({ setShowAlert }: Props) {
     }
   };
 
-  return isMobile ? (
-    <Sheet 
-    isOpen={isSheetOpen}
-    onClose={handleClose}
-    snapPoints={[500]}
-    onOpenStart={() => {
-     
-      applyDeepBlur();
-    }}
-    onCloseEnd={() => {
-     
-      removeBlur();
-    }}
-  >
-    <Sheet.Container
-      style={{
-        height: 579,
-        backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
-      }}
+  return (
+    <Sheet
+      isOpen={isSheetOpen}
+      onClose={handleClose}
+      snapPoints={[500]}
+      onOpenStart={applyDeepBlur}
+      onCloseEnd={removeBlur}
     >
-      <Sheet.Header />
-      <Sheet.Content>
-        <Box p={2} sx={{ backgroundColor: mode === "dark" ? "#141718" : "#ffffff", color: mode === "dark" ? "white" : "black" }}>
-          {renderContent()}
-        </Box>
-      </Sheet.Content>
-    </Sheet.Container>
-    <Sheet.Backdrop onTap={handleClose} />
-  </Sheet>
-  ) : (
-    <Dialog open onClose={handleClose} maxWidth="sm" fullWidth>
-      <Box
-        p={2}
-        sx={{
-          backgroundColor: mode === "dark" ? "#121212" : "#ffffff",
-          color: mode === "dark" ? "white" : "black",
+      <Sheet.Container
+        style={{
+          height: 579,
+          backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
         }}
       >
-        {renderContent()}
-      </Box>
-    </Dialog>
+        <Sheet.Header />
+        <Sheet.Content>
+          <Box
+            p={2}
+            sx={{
+              backgroundColor: mode === "dark" ? "#141718" : "#ffffff",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          >
+            {renderContent()}
+          </Box>
+        </Sheet.Content>
+      </Sheet.Container>
+      <Sheet.Backdrop onTap={handleClose} />
+    </Sheet>
   );
+  
 }

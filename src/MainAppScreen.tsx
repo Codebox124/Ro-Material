@@ -282,7 +282,7 @@ export default function MainAppScreen() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box style={{ zIndex: 'unset' }} sx={{ display: "flex" }}>
       <ErrorBoundary fallback={<div>Failed to load the Menu bar</div>}>
         <MenuBar />
       </ErrorBoundary>

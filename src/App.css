@@ -54,3 +54,9 @@ body{
 .css-rizt0-MuiTypography-root{
   font-family: "Gantari", sans-serif !important;
 }
+
+
+.css-1i98s5f-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+
+  z-index: 13000 !important;
+}
